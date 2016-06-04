@@ -27,16 +27,16 @@ def HomeView(request):
 
     client_ip = get_client_ip(request)
     print client_ip
-    #location = ipquery(client_ip)
-    #context = {
-    #    "ip": client_ip,
-    #    "country": location[2],
-    #    "city": location[3],
-    #    "latitude":location[0],
-    #    "longitude": location[1]
-    #}
-    return render(request, 'home.html'
-                  #context=context
+    location = ipquery(client_ip)
+    context = {
+        "ip": client_ip,
+        "country": location[2],
+        "city": location[3],
+        "latitude":location[0],
+        "longitude": location[1]
+    }
+    return render(request, 'home.html',
+                  context=context
                   )
 
 
