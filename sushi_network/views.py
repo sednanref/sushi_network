@@ -1,7 +1,6 @@
 #from django.views import generic
 #from django.http import HttpResponseRedirect, HttpResponse, Http404
 from django.shortcuts import render
-import foursquare
 import pygeoip
 
 
@@ -14,8 +13,6 @@ def ipquery(ip):
     city = data['city']
     lat = data['latitude']
     longi = data['longitude']
-    #print '[x] '+str(city)+',' +str(country)
-    #print '[x] Latitude: '+str(lat)+ ', Longitude: '+ str(longi)
     return (lat,longi, country, city)
 
 def get_client_ip(request):
@@ -28,14 +25,9 @@ def get_client_ip(request):
 
 def HomeView(request):
 
-    f_client = foursquare.Foursquare(client_id="MSB3H0C14BLRSSAAYGELVLAAWVKWUL5DXYVMWF2UJPUVZOMC",
-                                   client_secret="ZSDRDRBEZHO4DUH5TWS2DQMOUP1MMBBMEZJBNDZZVXTUFZX1",
-                                   redirect_uri="http://www.icogroup.com")
-
     client_ip = get_client_ip(request)
     print client_ip
     location = ipquery(client_ip)
-    print str(location[0]) + " " + location[2] + " " + location[3]
     context = {
         "ip": client_ip,
         "country": location[2],
@@ -43,11 +35,6 @@ def HomeView(request):
         "latitude":location[0],
         "longitude": location[1]
     }
-    #geolocation = ipquery(client_ip)
-    #print geolocation
-    #def get_queryset(self):
-    #    print geolocation
-
     return render(request, 'home.html', context=context)
 
 
