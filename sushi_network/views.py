@@ -35,7 +35,7 @@ def HomeView(request):
     client_ip = get_client_ip(request)
     print client_ip
     location = ipquery(client_ip)
-    print location[0] + " " + location[2] + " " + location[3]
+    print str(location[0]) + " " + location[2] + " " + location[3]
     #geolocation = ipquery(client_ip)
     #print geolocation
     #def get_queryset(self):
