@@ -36,11 +36,12 @@ def HomeView(request):
     print client_ip
     location = ipquery(client_ip)
     print str(location[0]) + " " + location[2] + " " + location[3]
+    context = {"ip": client_ip, "country": location[2], "city": location[3]}
     #geolocation = ipquery(client_ip)
     #print geolocation
     #def get_queryset(self):
     #    print geolocation
 
-    return render(request, 'home.html')
+    return render(request, 'home.html', context=context)
 
 
