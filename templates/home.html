@@ -10,7 +10,7 @@
     <style>
       #map { position:absolute;
           top:300px;
-          bottom:0;
+          bottom: 0;
           width:100%;}
     </style>
     <!-- Importing bootstrap and angular -->
@@ -28,6 +28,8 @@
             <div class="col-xs-12 col-sm-8">
                 <h3>Your Location is:</h3>
                 <p>IP: {{ ip }}</p>
+                <p>Country: {{ country }}</p>
+                <p>City: {{ city }}</p>
             </div>
             <div class="col-xs-12">
                 <div id='map'></div>
