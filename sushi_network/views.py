@@ -10,13 +10,13 @@ rawdata = pygeoip.GeoIP("./sushi_network/resources/GeoLiteCity.dat")
 # function that returns the latitude and longitude of the received IP
 def ipquery(ip):
     data = rawdata.record_by_name(ip)
-    #country = data['country_name']
-    #city = data['city']
+    country = data['country_name']
+    city = data['city']
     lat = data['latitude']
     longi = data['longitude']
     #print '[x] '+str(city)+',' +str(country)
     #print '[x] Latitude: '+str(lat)+ ', Longitude: '+ str(longi)
-    return (lat,longi)
+    return (lat,longi, country, city)
 
 def get_client_ip(request):
     x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
@@ -35,7 +35,7 @@ def HomeView(request):
     client_ip = get_client_ip(request)
     print client_ip
     location = ipquery(client_ip)
-    print location[0]
+    print location[0] + " " + location[2] + " " + location[3]
     #geolocation = ipquery(client_ip)
     #print geolocation
     #def get_queryset(self):
