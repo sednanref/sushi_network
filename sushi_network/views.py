@@ -36,7 +36,13 @@ def HomeView(request):
     print client_ip
     location = ipquery(client_ip)
     print str(location[0]) + " " + location[2] + " " + location[3]
-    context = {"ip": client_ip, "country": location[2], "city": location[3]}
+    context = {
+        "ip": client_ip,
+        "country": location[2],
+        "city": location[3],
+        "latitude":location[0],
+        "longitude": location[1]
+    }
     #geolocation = ipquery(client_ip)
     #print geolocation
     #def get_queryset(self):
