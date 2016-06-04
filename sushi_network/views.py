@@ -33,6 +33,8 @@ def HomeView(request):
                                    redirect_uri="http://www.icogroup.com")
 
     client_ip = get_client_ip(request)
+    print client_ip
+    
     #geolocation = ipquery(client_ip)
     #print geolocation
     #def get_queryset(self):
