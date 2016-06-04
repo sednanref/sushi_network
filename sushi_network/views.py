@@ -1,6 +1,6 @@
 from django.views import generic
 import foursquare
-import
+
 
 
 class HomeView(generic.ListView):
