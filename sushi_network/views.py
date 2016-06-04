@@ -35,8 +35,10 @@ def HomeView(request):
         "latitude":location[0],
         "longitude": location[1]
     }
-    return render(request, 'home.html',
-                  context=context
-                  )
+    return render(
+                    request,
+                    'home.html',
+                    context=context
+                )
 
 
