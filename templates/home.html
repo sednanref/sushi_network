@@ -8,14 +8,14 @@
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
     <link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' />
-    <style>
+<!--    <style>
       #map { position:absolute;
           top:  50px;
           bottom: 0;
           width:90%;
-          height: 90%;
+
       }
-    </style>
+    </style>-->
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -99,7 +99,7 @@
             venue.name + '</a></strong>')
             .addTo(foursquarePlaces);
         }
-    //To get the mapbox inside bootstrap
+        //To get the mapbox inside bootstrap
         var mapmargin = 50;
         $('#map').css("height", ($(window).height() - mapmargin));
         $(window).on("resize", resize);
