@@ -97,13 +97,13 @@
                 'marker-size': 'large'
               })
             })
-                  
+
           .bindPopup('<strong><a href="https://foursquare.com/v/' + venue.id + '">' +
             venue.name + address + '</a></strong>')
             .addTo(foursquarePlaces);
         }
         //To get the mapbox inside bootstrap
-        var mapmargin = 50;
+        var mapmargin = 100;
         $('#map').css("height", ($(window).height() - mapmargin));
         $(window).on("resize", resize);
         resize();
