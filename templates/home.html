@@ -93,7 +93,7 @@
               })
             })
           .bindPopup('<strong><a href="https://foursquare.com/v/' + venue.id + '">' +
-            venue.name + '</a></strong>')
+            venue.name + '<br>'+ venue.location[0] + '</a></strong>')
             .addTo(foursquarePlaces);
         }
         //To get the mapbox inside bootstrap
