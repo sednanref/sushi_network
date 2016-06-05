@@ -6,7 +6,8 @@ import pygeoip
 
 # Rawdata that contains the mapping between Ip's and geolocations.
 rawdata = pygeoip.GeoIP("./sushi_network/resources/GeoLiteCity.dat")
-# function that returns the latitude and longitude of the received IP
+# function that returns a tupple with the location (latitude, longitude,
+# country, city) of the received IP
 def ipquery(ip):
     data = rawdata.record_by_name(ip)
     country = data['country_name']
@@ -14,7 +15,7 @@ def ipquery(ip):
     lat = data['latitude']
     longi = data['longitude']
     return (lat,longi, country, city)
-
+# function that returns the IP from the requesting client.
 def get_client_ip(request):
     x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
     if x_forwarded_for:
@@ -23,6 +24,7 @@ def get_client_ip(request):
         ip = request.META.get('REMOTE_ADDR')
     return ip
 
+# View context of the application
 def HomeView(request):
 
     client_ip = get_client_ip(request)
