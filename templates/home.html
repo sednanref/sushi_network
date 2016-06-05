@@ -85,6 +85,11 @@
         for (var i = 0; i < result.response.venues.length; i++) {
           var venue = result.response.venues[i];
           var latlng = L.latLng(venue.location.lat, venue.location.lng);
+          var address = "";
+          if(venue.location.address != null){
+            address = "<br>" + venue.location.address;
+          }
+
           var marker = L.marker(latlng, {
               icon: L.mapbox.marker.icon({
                 'marker-color': '#000080',
@@ -92,8 +97,12 @@
                 'marker-size': 'large'
               })
             })
+
+                  if (venue.location.address == null){
+
+                  }
           .bindPopup('<strong><a href="https://foursquare.com/v/' + venue.id + '">' +
-            venue.name + '<br>'+ venue.location.address + '</a></strong>')
+            venue.name + address + '</a></strong>')
             .addTo(foursquarePlaces);
         }
         //To get the mapbox inside bootstrap
